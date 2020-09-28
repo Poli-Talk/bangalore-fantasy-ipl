@@ -23,17 +23,22 @@ for (const eachManager of json_obj.feed.entry) {
     let currentPointsData = eachManager.gsx$currentpoints.$t;
     let pointsForPolePositionData = eachManager.gsx$pointsfor1.$t;
     let pointsPerGamePolePositionData = eachManager.gsx$pergamefor1.$t;
+    let captainData = eachManager.gsx$captain.$t;
+    let viceCaptainData = eachManager.gsx$vicecaptain.$t;
 
     let gridTable = document.querySelector('table');
     let row = gridTable.insertRow();
     let todayPostion = row.insertCell();
     let teamName = row.insertCell();
     let managerName = row.insertCell();
+    let captain = row.insertCell();
+    let viceCaptain = row.insertCell();
     let scoredToday = row.insertCell();
     let overallPostion = row.insertCell();
     let currentPoints = row.insertCell();
     let pointsForPolePosition = row.insertCell();
     let pointsPerGamePolePosition = row.insertCell();
+
 
     if (scoredToday !== "null") {
         todayPostion.innerHTML = todayPostionData;
@@ -44,6 +49,8 @@ for (const eachManager of json_obj.feed.entry) {
         currentPoints.innerHTML = currentPointsData;
         pointsForPolePosition.innerHTML = pointsForPolePositionData;
         pointsPerGamePolePosition.innerHTML = pointsPerGamePolePositionData;
+        captain.innerHTML = captainData;
+        viceCaptain.innerHTML = viceCaptainData;
     }
 }
 
@@ -51,12 +58,12 @@ const fullTable = document.getElementsByTagName('tr');
 
 for (const eachRow of fullTable) {
     const eachData = eachRow.getElementsByTagName('td');
-    let overallPositionIndex = 5;
+    let overallPositionIndex = 7;
     let loopCounter = 0;
     for (const dataElement of eachData) {
         loopCounter++;
 
-        if (loopCounter == 1 || loopCounter == 5) {
+        if (loopCounter == 1 || loopCounter == overallPositionIndex) {
             dataElement.classList.add('first-cell');
         }
 
@@ -123,6 +130,6 @@ function action(ind) {
 
 
 for (let index = 0; index < tableHeads.length; index++) {
-    if (index == 0 || index == 4)
+    if (index == 0 || index == 6)
         tableHeads[index].addEventListener('click', action(index));
 }
