@@ -30,6 +30,17 @@ thead {
     background-color: #008080;
 }
 
+th {
+    background-color: #008080;
+    font-family: 'Bebas Neue', cursive;
+    color: #d8f3dc;
+    text-align: center;
+    margin: 0;
+    padding: 4px;
+    border: 1px solid grey;
+    font-size: 20px;
+}
+
 .tableHeader td {
     background-color: #081c15;
     color: #d8f3dc;
