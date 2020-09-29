@@ -1,0 +1,39 @@
+// var elmnt = document.getElementsByClassName("df-contest__box df-teamPreview ");
+// scrollTillEnd();
+// function scrollTillEnd() {
+//     for (lone of elmnt) {
+//         lone.scrollIntoView();
+//     }
+
+//     // console.log(lone);
+//     // console.log(lone.getElementsByTagName("span"));
+//     isMatchDay1Available = false;
+//     for (eachSpan of lone.getElementsByTagName("span")) {
+//         // console.log(eachSpan.textContent);
+//         if (eachSpan.textContent.trim() == 'Matchday 1') {
+//             console.log(eachSpan.textContent);
+//             console.log("Got It!");
+//             isMatchDay1Available = true;
+//             break;
+//         }
+//     }
+
+//     if (!isMatchDay1Available) {
+//         scrollTillEnd();
+//     }
+// }
+
+let elmnt = document.getElementsByClassName("df-contest__box df-teamPreview ");
+let gamesPassed = 10;
+// scrollTillEnd();
+for (index = 1; index <= 10 / 2; index++) {
+    scrollTillEnd();
+    // console.log(index);
+}
+async function scrollTillEnd() {
+    await sleep(2000);
+    for (lone of elmnt) {
+        lone.scrollIntoView();
+        // console.log(lone);
+    }
+}
