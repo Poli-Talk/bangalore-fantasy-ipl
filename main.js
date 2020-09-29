@@ -22,9 +22,11 @@ for (const eachManager of json_obj.feed.entry) {
     let overallPostionData = eachManager.gsx$overallposition.$t;
     let currentPointsData = eachManager.gsx$currentpoints.$t;
     let pointsForPolePositionData = eachManager.gsx$pointsfor1.$t;
-    let pointsPerGamePolePositionData = eachManager.gsx$pergamefor1.$t;
+    let transfersLeftData = eachManager.gsx$transfersleft.$t;
     let captainData = eachManager.gsx$captain.$t;
     let viceCaptainData = eachManager.gsx$vicecaptain.$t;
+    let pointsPerTransferData = parseInt(currentPointsData) / parseInt(transfersLeftData);
+    let estimatedFinalPointsData = parseInt(currentPointsData) + parseFloat(pointsPerTransferData) * parseInt(transfersLeftData);
 
     let gridTable = document.querySelector('table');
     let row = gridTable.insertRow();
@@ -36,8 +38,11 @@ for (const eachManager of json_obj.feed.entry) {
     let scoredToday = row.insertCell();
     let overallPostion = row.insertCell();
     let currentPoints = row.insertCell();
+    let transfersLeft = row.insertCell();
+    let pointsPerTransfer = row.insertCell();
+    let estimatedFinalPoints = row.insertCell();
     let pointsForPolePosition = row.insertCell();
-    let pointsPerGamePolePosition = row.insertCell();
+
 
 
     if (scoredToday !== "null") {
@@ -48,8 +53,10 @@ for (const eachManager of json_obj.feed.entry) {
         overallPostion.innerHTML = overallPostionData;
         currentPoints.innerHTML = currentPointsData;
         pointsForPolePosition.innerHTML = pointsForPolePositionData;
-        pointsPerGamePolePosition.innerHTML = pointsPerGamePolePositionData;
+        transfersLeft.innerHTML = transfersLeftData;
         captain.innerHTML = captainData;
+        pointsPerTransfer.innerHTML = pointsPerTransferData.toFixed(2);
+        estimatedFinalPoints.innerHTML = estimatedFinalPointsData.toFixed(0);
         viceCaptain.innerHTML = viceCaptainData;
     }
 }
@@ -79,7 +86,7 @@ for (const eachRow of fullTable) {
 }
 
 
-function sortTable(ele) {
+function sortTableAsc(ele) {
     let table, rows, switching, i, x, y, shouldSwitch;
     table = document.getElementById("leadertable");
     switching = true;
@@ -121,15 +128,64 @@ function sortTable(ele) {
     tableHeads[index].addEventListener('click', sortTable(3));;
 } */
 
-function action(ind) {
+function actionAsc(ind) {
     return function () {
         console.log(ind);
-        sortTable(ind);
+        sortTableAsc(ind);
+    }
+};
+
+function actionDesc(ind) {
+    return function () {
+        console.log(ind);
+        sortTableDesc(ind);
     }
 };
 
 
 for (let index = 0; index < tableHeads.length; index++) {
-    if (index == 0 || index == 6)
-        tableHeads[index].addEventListener('click', action(index));
+    if (index == 0 || index == 6 || index == 9)
+        tableHeads[index].addEventListener('click', actionAsc(index));
+}
+
+for (let index = 0; index < tableHeads.length; index++) {
+    if (index == 8 || index == 10 || index == 9)
+        tableHeads[index].addEventListener('click', actionDesc(index));
+}
+
+
+function sortTableDesc(ele) {
+    let table, rows, switching, i, x, y, shouldSwitch;
+    table = document.getElementById("leadertable");
+    switching = true;
+    /* Make a loop that will continue until
+    no switching has been done: */
+    while (switching) {
+        // Start by saying: no switching is done:
+        switching = false;
+        rows = table.rows;
+        // console.log("table.rows" + table.rows+ "rows.length "+rows.length);
+        /* Loop through all table rows (except the
+        first, which contains table headers): */
+        for (i = 1; i < (rows.length - 1); i++) {
+            // Start by saying there should be no switching:
+            shouldSwitch = false;
+            /* Get the two elements you want to compare,
+            one from current row and one from the next: */
+            x = rows[i].getElementsByTagName("td")[ele];
+            y = rows[i + 1].getElementsByTagName("td")[ele];
+            // Check if the two rows should switch place:
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                // If so, mark as a switch and break the loop:
+                shouldSwitch = true;
+                break;
+            }
+        }
+        if (shouldSwitch) {
+            /* If a switch has been marked, make the switch
+            and mark that a switch has been done: */
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+        }
+    }
 }

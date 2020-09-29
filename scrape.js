@@ -8,6 +8,7 @@ var over = "//li[@class='swiper-slide swiper-slide-next']";
 var own = 0;
 var fullArray = "";
 var gamesPassed = 10;
+var timeout = 1500;
 
 
 function sleep(ms) {
@@ -19,10 +20,9 @@ doWork();
 async function doWork() {
 
     for (const eachPlayer of first) {
-        // console.log("Hellow");
         own++;
         eachPlayer.click();
-        await sleep(8000);
+        await sleep(timeout);
         let captainName = document.evaluate(captain, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
         let viceCaptainName = document.evaluate(viceCaptain, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
         let managerName = document.evaluate(manager, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
@@ -34,38 +34,30 @@ async function doWork() {
         if (own != 1) {
             let overClick = document.evaluate(over, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
             overClick.singleNodeValue.click();
-            await sleep(1000);
+            await sleep(timeout);
 
-            // scrollTillEnd();
             for (index = 1; index <= gamesPassed; index++) {
                 scrollTillEnd();
-                // console.log(index);
             }
-            await sleep(3000);
+            await sleep(timeout);
             let transfersMade = document.getElementsByClassName('df-transfer__overall');
-            // console.log(transfersMade.length);
             for (const transfers of transfersMade) {
                 totalTransfersMade = totalTransfersMade + parseInt(transfers.getElementsByTagName('em')[0].textContent.toString().trim());
-                //console.log(transfers.getElementsByTagName('em')[0].textContent);
-                // console.log(totalTransfersMade);
             }
-            //console.log(totalTransfersMade);
         }
 
-        await sleep(5000);
+        await sleep(timeout);
 
         fullArray = fullArray + "{\"" + mName + "\",\"" + cName + "," + vcName + "," + totalTransfersMade + "\" },";
-        // console.log("{\"" + mName + "\",\"" + cName + "," + vcName + + "," + totalTransfersMade + "\" },");
         console.log(fullArray);
     }
 }
 
 async function scrollTillEnd() {
-    await sleep(200);
+    await sleep(timeout);
     let elmnt = document.getElementsByClassName("df-contest__box df-teamPreview ");
     for (lone of elmnt) {
-        await sleep(200);
+        await sleep(timeout);
         lone.scrollIntoView();
-        // console.log(lone);
     }
 }
