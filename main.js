@@ -25,7 +25,7 @@ for (const eachManager of json_obj.feed.entry) {
     let transfersLeftData = eachManager.gsx$transfersleft.$t;
     let captainData = eachManager.gsx$captain.$t;
     let viceCaptainData = eachManager.gsx$vicecaptain.$t;
-    let pointsPerTransferData = parseInt(currentPointsData) / parseInt(transfersLeftData);
+    let pointsPerTransferData = parseInt(currentPointsData) / (110 - parseInt(transfersLeftData));
     let estimatedFinalPointsData = parseInt(currentPointsData) + parseFloat(pointsPerTransferData) * parseInt(transfersLeftData);
 
     let gridTable = document.querySelector('table');
