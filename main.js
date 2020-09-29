@@ -66,12 +66,17 @@ const fullTable = document.getElementsByTagName('tr');
 for (const eachRow of fullTable) {
     const eachData = eachRow.getElementsByTagName('td');
     let overallPositionIndex = 7;
+    let transfersLeftIndex = 9;
     let loopCounter = 0;
     for (const dataElement of eachData) {
         loopCounter++;
 
         if (loopCounter == 1 || loopCounter == overallPositionIndex) {
             dataElement.classList.add('first-cell');
+        }
+
+        if (loopCounter == transfersLeftIndex) {
+            dataElement.classList.add('transfers-left');
         }
 
         if (loopCounter == overallPositionIndex && parseInt(dataElement.innerHTML) < 6) {

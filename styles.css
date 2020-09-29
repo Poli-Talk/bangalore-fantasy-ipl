@@ -84,3 +84,9 @@ button {
     width: 30px;
     text-align: center;
 }
+
+.transfers-left{
+    justify-content: stretch;
+    width: 103px;
+    text-align: center;
+}
