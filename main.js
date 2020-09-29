@@ -112,7 +112,7 @@ function sortTableAsc(ele) {
             x = rows[i].getElementsByTagName("td")[ele];
             y = rows[i + 1].getElementsByTagName("td")[ele];
             // Check if the two rows should switch place:
-            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            if (parseInt(x.innerHTML.toLowerCase()) > parseInt(y.innerHTML.toLowerCase())) {
                 // If so, mark as a switch and break the loop:
                 shouldSwitch = true;
                 break;
@@ -180,7 +180,7 @@ function sortTableDesc(ele) {
             x = rows[i].getElementsByTagName("td")[ele];
             y = rows[i + 1].getElementsByTagName("td")[ele];
             // Check if the two rows should switch place:
-            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            if (parseInt(x.innerHTML.toLowerCase()) < parseInt(y.innerHTML.toLowerCase())) {
                 // If so, mark as a switch and break the loop:
                 shouldSwitch = true;
                 break;
