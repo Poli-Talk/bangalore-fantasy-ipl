@@ -1,0 +1,264 @@
+:root {
+    --full-team-name-color: #74c69d;
+    --full-team-name-background-color: #081c15;
+    ;
+    --team-code-color: #74c69d;
+    --team-code-background-color: #081c15;
+    ;
+    --header-color: yellow;
+    --header-background-color: #03071e;
+    --position-name-color: #fca311;
+    --position-name-background-color: #14213d;
+    --info-data-color: #fff1e6;
+    --inner-border-color: #faf9f9;
+    --outer-border-color: black;
+    --border-thickness: 0.01px;
+    --letter-spacing-data: 1px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+
+
+#navigation {
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+
+a {
+    text-decoration: none;
+    margin: 5px;
+    /* font-family: 'Signika', sans-serif; */
+    /* font-family: 'Anton', sans-serif; */
+    /* font-family: 'Ultra', serif; */
+    /* font-family: 'Amaranth', sans-serif; */
+    font-family: 'Julius Sans One', sans-serif;
+    text-transform: uppercase;
+    color: #ffff3f;
+    margin: 10px 20px;
+    padding: 3px;
+}
+
+a:hover {
+    color: #0b1d51;
+    background-color: #fde327;
+}
+
+#playersbox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 5px;
+
+    width: 80%; /* Can be in percentage also. */
+    height: auto;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.each-teams-player-box-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: "team-code team-full-name team-full-name team-full-name" "player-position player-name player-price player-points" "wicket-keeper wicket-keeper-name wicket-keeper-price wicket-keeper-points" "batsman batsman-name batsman-price batsman-points" "all-rounder all-rounder-name all-rounder-price all-rounder-points" "bowler bowler-name bowler-price bowler-points";
+    /* background-color: navy; */
+    padding: 3px;
+    justify-content: space-evenly;
+    width: 500px;
+    font-family: 'Bebas Neue', cursive;
+    border: var(--border-thickness) solid var(--outer-border-color);
+    font-size: 17px;
+}
+
+.team-code {
+    grid-area: team-code;
+    text-align: center;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    background-color: var(--team-code-background-color);
+    color: var(--team-code-color);
+}
+
+.team-fullname {
+    grid-area: team-full-name;
+    text-align: center;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    background-color: var(--full-team-name-background-color);
+    color: var(--team-code-color);
+}
+
+.player-position {
+    grid-area: player-position;
+    text-align: center;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    background-color: var(--header-background-color);
+    color: var(--header-color);
+}
+
+.player-name {
+    grid-area: player-name;
+    text-align: center;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    background-color: var(--header-background-color);
+    color: var(--header-color);
+}
+
+.player-price {
+    grid-area: player-price;
+    text-align: center;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    background-color: var(--header-background-color);
+    color: var(--header-color);
+}
+
+.player-points {
+    grid-area: player-points;
+    text-align: center;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    background-color: var(--header-background-color);
+    color: var(--header-color);
+}
+
+.wicket-keeper {
+    grid-area: wicket-keeper;
+    text-align: left;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    color: var(--info-data-color);
+}
+
+.wicket-keeper-name {
+    grid-area: wicket-keeper-name;
+    text-align: left;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    color: var(--info-data-color);
+    letter-spacing: var(--letter-spacing-data);
+}
+
+.wicket-keeper-price {
+    grid-area: wicket-keeper-price;
+    text-align: center;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    color: var(--info-data-color);
+    letter-spacing: var(--letter-spacing-data);
+}
+
+.wicket-keeper-points {
+    grid-area: wicket-keeper-points;
+    text-align: center;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    color: var(--info-data-color);
+    letter-spacing: var(--letter-spacing-data);
+}
+
+.batsman {
+    grid-area: batsman;
+    text-align: left;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    color: var(--info-data-color);
+    letter-spacing: var(--letter-spacing-data);
+}
+
+.batsman-name {
+    grid-area: batsman-name;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    text-align: left;
+    color: var(--info-data-color);
+    letter-spacing: var(--letter-spacing-data);
+}
+
+.batsman-price {
+    grid-area: batsman-price;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    text-align: center;
+    color: var(--info-data-color);
+    letter-spacing: var(--letter-spacing-data);
+}
+
+.batsman-points {
+    grid-area: batsman-points;
+    text-align: center;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    color: var(--info-data-color);
+    letter-spacing: var(--letter-spacing-data);
+}
+
+.all-rounder {
+    grid-area: all-rounder;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    text-align: left;
+    color: var(--info-data-color);
+    letter-spacing: var(--letter-spacing-data);
+}
+
+.all-rounder-name {
+    grid-area: all-rounder-name;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    color: var(--info-data-color);
+    letter-spacing: var(--letter-spacing-data);
+    text-align: left;
+}
+
+.all-rounder-price {
+    grid-area: all-rounder-price;
+    text-align: center;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    color: var(--info-data-color);
+    letter-spacing: var(--letter-spacing-data);
+}
+
+.all-rounder-points {
+    grid-area: all-rounder-points;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    text-align: center;
+    color: var(--info-data-color);
+    letter-spacing: var(--letter-spacing-data);
+}
+
+.bowler {
+    grid-area: bowler;
+    text-align: left;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    color: var(--info-data-color);
+    letter-spacing: var(--letter-spacing-data);
+}
+
+.bowler-name {
+    grid-area: bowler-name;
+    text-align: left;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    color: var(--info-data-color);
+    letter-spacing: var(--letter-spacing-data);
+}
+
+.bowler-price {
+    grid-area: bowler-price;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    text-align: center;
+    color: var(--info-data-color);
+    letter-spacing: var(--letter-spacing-data);
+}
+
+.bowler-points {
+    grid-area: bowler-points;
+    text-align: center;
+    border: var(--border-thickness) solid var(--inner-border-color);
+    color: var(--info-data-color);
+    letter-spacing: var(--letter-spacing-data);
+}
+
+.each-teams-player-box-grid {
+    margin: 2px;
+    /* background-color: darkgreen; */
+}
