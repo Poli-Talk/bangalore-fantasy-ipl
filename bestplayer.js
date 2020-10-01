@@ -95,3 +95,51 @@ for (const playerInfo of json_obj.feed.entry) {
     }
 
 }
+
+const cskOption = document.getElementById('csk-option');
+const dcOption = document.getElementById('dc-option');
+const kxipOption = document.getElementById('kxip-option');
+const kkrOption = document.getElementById('kkr-option');
+const miOption = document.getElementById('mi-option');
+const rrOption = document.getElementById('rr-option');
+const rcbOption = document.getElementById('rcb-option');
+const srhOption = document.getElementById('srh-option');
+
+const selectOrUnselect = (e) => {
+    let selectedTeam = e.target.innerHTML;
+
+    if (e.target.classList.contains('button-select')) {
+        e.target.classList.remove('button-select');
+        e.target.classList.add('button-unselect');
+
+        let allTeamGrids = document.getElementsByClassName('team-code');
+        for (let eachTeamGrid of allTeamGrids) {
+            if (eachTeamGrid.innerHTML == selectedTeam) {
+                eachTeamGrid.parentElement.classList.add('all-black');
+                break;
+            }
+        }
+    }
+    else if (e.target.classList.contains('button-unselect')) {
+        e.target.classList.remove('button-unselect');
+        e.target.classList.add('button-select');
+
+        let allTeamGrids = document.getElementsByClassName('team-code');
+        for (let eachTeamGrid of allTeamGrids) {
+            if (eachTeamGrid.innerHTML == selectedTeam) {
+                eachTeamGrid.parentElement.classList.remove('all-black');
+                break;
+            }
+        }
+    }
+
+};
+
+cskOption.addEventListener('click', selectOrUnselect);
+dcOption.addEventListener('click', selectOrUnselect);
+kxipOption.addEventListener('click', selectOrUnselect);
+kkrOption.addEventListener('click', selectOrUnselect);
+miOption.addEventListener('click', selectOrUnselect);
+rrOption.addEventListener('click', selectOrUnselect);
+rcbOption.addEventListener('click', selectOrUnselect);
+srhOption.addEventListener('click', selectOrUnselect);

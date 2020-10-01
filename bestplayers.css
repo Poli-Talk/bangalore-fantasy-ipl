@@ -1,10 +1,8 @@
 :root {
     --full-team-name-color: #74c69d;
     --full-team-name-background-color: #081c15;
-    ;
     --team-code-color: #74c69d;
     --team-code-background-color: #081c15;
-    ;
     --header-color: yellow;
     --header-background-color: #03071e;
     --position-name-color: #fca311;
@@ -22,8 +20,6 @@
     box-sizing: border-box;
     background-color: black;
 }
-
-
 
 #navigation {
     margin: 0;
@@ -48,6 +44,7 @@ a {
     color: #ffff3f;
     margin: 10px 20px;
     padding: 3px;
+    transition: all 200ms ease-in-out;
 }
 
 a:hover {
@@ -62,8 +59,8 @@ a:hover {
     align-items: center;
     align-content: center;
     margin: 5px;
-
-    width: 80%; /* Can be in percentage also. */
+    width: 80%;
+    /* Can be in percentage also. */
     height: auto;
     margin: 0 auto;
     padding: 15px;
@@ -261,4 +258,37 @@ a:hover {
 .each-teams-player-box-grid {
     margin: 2px;
     /* background-color: darkgreen; */
+}
+
+#team-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.button-select {
+    color: #0b1d51;
+    background-color: #fde327;
+    border: #fde327 2px solid;
+    width: 50px;
+    margin: 5px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 17px;
+    outline: none;
+}
+
+.button-unselect {
+    color: #fde327;
+    background-color: black;
+    border: #fde327 2px solid;
+    width: 50px;
+    margin: 5px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 17px;
+    outline: none;
+}
+
+.all-black {
+    /* visibility: hidden; */
+    display: none;
 }
