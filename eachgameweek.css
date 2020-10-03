@@ -1,0 +1,106 @@
+:root {
+    --full-team-name-color: #74c69d;
+    --full-team-name-background-color: #081c15;
+    --team-code-color: #74c69d;
+    --team-code-background-color: #081c15;
+    --header-color: yellow;
+    --header-background-color: #03071e;
+    --position-name-color: #fca311;
+    --position-name-background-color: #14213d;
+    --info-data-color: #fff1e6;
+    --inner-border-color: #faf9f9;
+    --outer-border-color: black;
+    --border-thickness: 0.01px;
+    --letter-spacing-data: 1px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+#navigation {
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+
+a {
+    text-decoration: none;
+    margin: 5px;
+    /* font-family: 'Signika', sans-serif; */
+    /* font-family: 'Anton', sans-serif; */
+    /* font-family: 'Ultra', serif; */
+    /* font-family: 'Amaranth', sans-serif; */
+    font-family: 'Julius Sans One', sans-serif;
+    text-transform: uppercase;
+    color: #ffff3f;
+    margin: 10px 20px;
+    padding: 3px;
+    transition: all 200ms ease-in-out;
+}
+
+a:hover {
+    color: #0b1d51;
+    background-color: #fde327;
+}
+
+table {
+    margin: 0;
+    padding: 0;
+    border-spacing: 0px;
+    border-collapse: separate;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+thead {
+    margin: 0;
+    padding: 0;
+    background-color: #008080;
+}
+
+th {
+    background-color: #008080;
+    font-family: 'Bebas Neue', cursive;
+    color: #d8f3dc;
+    text-align: center;
+    margin: 0;
+    padding: 4px;
+    border: 1px solid grey;
+    font-size: 20px;
+}
+
+.tableHeader td {
+    background-color: #081c15;
+    color: #d8f3dc;
+    text-align: center;
+}
+
+.tableHeader .pos-num {
+    width: 10px;
+}
+
+tr {
+    margin: 0;
+    padding: 0;
+    border-spacing: none;
+    background-color: #008080;
+    font-family: 'Bebas Neue', cursive;
+    padding: 5px;
+}
+
+td {
+    margin: 0;
+    padding: 4px;
+    border: 1px solid grey;
+    font-size: 20px;
+    color: #d8f3dc;
+}
