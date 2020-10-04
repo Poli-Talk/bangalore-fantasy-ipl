@@ -33,13 +33,24 @@ for (i = 0; i < columnNames.length; i++) {
 	if (columnNames[i].includes("day")) {
 		indexOfDay = columnNames[i].indexOf("day") + 3;
 		dayAndMonth = columnNames[i].substring(indexOfDay);
-
+		colName = "";
 		if (dayAndMonth.length == 3) {
-			colName = dayAndMonth.substring(2) + "/" + dayAndMonth.substring(0, 2);
+			if (dayAndMonth.substring(0, 2) == "10") {
+				colName = "Oct - " + dayAndMonth.substring(2);
+			}
+			else if (dayAndMonth.substring(0, 2) == "11") {
+				colName = "Nov - " + dayAndMonth.substring(2);
+			}
 			addColumn(colName);
 		}
 		else {
-			colName = dayAndMonth.substring(2) + "/" + dayAndMonth.substring(0, 2);
+			if (dayAndMonth.substring(0, 2) == "10") {
+				colName = "Oct - " + dayAndMonth.substring(2);
+			}
+			else if (dayAndMonth.substring(0, 2) == "11") {
+				colName = "Nov - " + dayAndMonth.substring(2);
+			}
+			// colName = dayAndMonth.substring(2) + "/" + dayAndMonth.substring(0, 2);
 			addColumn(colName);
 		}
 
