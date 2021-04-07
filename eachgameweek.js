@@ -35,20 +35,20 @@ for (i = 0; i < columnNames.length; i++) {
 		dayAndMonth = columnNames[i].substring(indexOfDay);
 		colName = "";
 		if (dayAndMonth.length == 3) {
-			if (dayAndMonth.substring(0, 2) == "10") {
-				colName = "Oct - " + dayAndMonth.substring(2);
+			if (dayAndMonth.substring(0, 2) == "04") {
+				colName = "Apr - " + dayAndMonth.substring(2);
 			}
-			else if (dayAndMonth.substring(0, 2) == "11") {
-				colName = "Nov - " + dayAndMonth.substring(2);
+			else if (dayAndMonth.substring(0, 2) == "05") {
+				colName = "May - " + dayAndMonth.substring(2);
 			}
 			addColumn(colName);
 		}
 		else {
-			if (dayAndMonth.substring(0, 2) == "10") {
-				colName = "Oct - " + dayAndMonth.substring(2);
+			if (dayAndMonth.substring(0, 2) == "04") {
+				colName = "Apr - " + dayAndMonth.substring(2);
 			}
-			else if (dayAndMonth.substring(0, 2) == "11") {
-				colName = "Nov - " + dayAndMonth.substring(2);
+			else if (dayAndMonth.substring(0, 2) == "05") {
+				colName = "May - " + dayAndMonth.substring(2);
 			}
 			// colName = dayAndMonth.substring(2) + "/" + dayAndMonth.substring(0, 2);
 			addColumn(colName);
@@ -72,9 +72,9 @@ for (const eachManager of json_obj.feed.entry) {
 	let entriesArray = Object.entries(eachManager);
 	for (monthNum = 4; monthNum < 12; monthNum++) {
 		for (dayNum = 1; dayNum < 32; dayNum++) {
-			let suffixCol = monthNum + "" + dayNum;
+			let suffixCol = "0" + monthNum + "" + dayNum;
 			let rankData = "gsx$day" + suffixCol;
-			if(monthNum==5)
+			if(monthNum==05)
 			{
 				console.log(rankData);
 			}
