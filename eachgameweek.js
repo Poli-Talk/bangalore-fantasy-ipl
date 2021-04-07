@@ -70,10 +70,14 @@ for (const eachManager of json_obj.feed.entry) {
 	teamName.innerHTML = teamNameData;
 	managerName.innerHTML = managerNameData;
 	let entriesArray = Object.entries(eachManager);
-	for (monthNum = 10; monthNum < 12; monthNum++) {
+	for (monthNum = 4; monthNum < 12; monthNum++) {
 		for (dayNum = 1; dayNum < 32; dayNum++) {
 			let suffixCol = monthNum + "" + dayNum;
 			let rankData = "gsx$day" + suffixCol;
+			if(monthNum==5)
+			{
+				console.log(rankData);
+			}
 			try {
 				let addRankData = eachManager[rankData].$t;
 				let addRankCol = row.insertCell();
@@ -87,6 +91,7 @@ for (const eachManager of json_obj.feed.entry) {
 
 			}
 			if (noOfAddRankData == columns) {
+				noOfAddRankData = 0;
 				break;
 			}
 		}
