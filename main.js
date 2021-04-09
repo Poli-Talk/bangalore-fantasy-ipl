@@ -6,6 +6,7 @@ const spreadsheetURL = prefix + sheetId + suffix;
 const tableHeads = document.querySelectorAll("th");
 
 var json_obj = JSON.parse(getData(spreadsheetURL));
+console.log(spreadsheetURL);
 
 function getData(url) {
     var HttpReq = new XMLHttpRequest(); // a new request
@@ -25,8 +26,10 @@ for (const eachManager of json_obj.feed.entry) {
     let transfersLeftData = eachManager.gsx$transfersleft.$t;
     let captainData = eachManager.gsx$captain.$t;
     let viceCaptainData = eachManager.gsx$vicecaptain.$t;
-    let pointsPerTransferData = parseInt(currentPointsData) / (110 - parseInt(transfersLeftData));
+    let pointsPerTransferData = parseInt(currentPointsData) / (111 - parseInt(transfersLeftData));
     let estimatedFinalPointsData = parseInt(currentPointsData) + parseFloat(pointsPerTransferData) * parseInt(transfersLeftData);
+    let groupNameData = eachManager.gsx$group.$t;
+    let groupScoreData = eachManager.gsx$groupscore.$t;
 
     let gridTable = document.querySelector('table');
     let row = gridTable.insertRow();
@@ -39,9 +42,10 @@ for (const eachManager of json_obj.feed.entry) {
     let overallPostion = row.insertCell();
     let currentPoints = row.insertCell();
     let transfersLeft = row.insertCell();
-    let pointsPerTransfer = row.insertCell();
     let estimatedFinalPoints = row.insertCell();
     let pointsForPolePosition = row.insertCell();
+    let groupName = row.insertCell();
+    let groupScore = row.insertCell();
 
 
 
@@ -55,9 +59,11 @@ for (const eachManager of json_obj.feed.entry) {
         pointsForPolePosition.innerHTML = pointsForPolePositionData;
         transfersLeft.innerHTML = transfersLeftData;
         captain.innerHTML = captainData;
-        pointsPerTransfer.innerHTML = pointsPerTransferData.toFixed(2);
+        groupScore.innerHTML = groupScoreData;
         estimatedFinalPoints.innerHTML = estimatedFinalPointsData.toFixed(0);
         viceCaptain.innerHTML = viceCaptainData;
+        groupName.innerHTML = groupNameData
+
     }
 }
 
@@ -149,12 +155,12 @@ function actionDesc(ind) {
 
 
 for (let index = 0; index < tableHeads.length; index++) {
-    if (index == 0 || index == 6 || index == 9)
+    if (index == 0 || index == 6 || index == 9 || index == 12 || index == 13)
         tableHeads[index].addEventListener('click', actionAsc(index));
 }
 
 for (let index = 0; index < tableHeads.length; index++) {
-    if (index == 8 || index == 10 || index == 9)
+    if (index == 8 || index == 10 || index == 9 || index == 12 || index == 13)
         tableHeads[index].addEventListener('click', actionDesc(index));
 }
 
