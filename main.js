@@ -6,7 +6,7 @@ const spreadsheetURL = prefix + sheetId + suffix;
 const tableHeads = document.querySelectorAll("th");
 
 var json_obj = JSON.parse(getData(spreadsheetURL));
-console.log(spreadsheetURL);
+//console.log(spreadsheetURL);
 
 function getData(url) {
     var HttpReq = new XMLHttpRequest(); // a new request
@@ -24,9 +24,11 @@ for (const eachManager of json_obj.feed.entry) {
     let currentPointsData = eachManager.gsx$currentpoints.$t;
     let pointsForPolePositionData = eachManager.gsx$pointsfor1.$t;
     let transfersLeftData = eachManager.gsx$transfersleft.$t;
-    let captainData = eachManager.gsx$captain.$t;
-    let viceCaptainData = eachManager.gsx$vicecaptain.$t;
-    let pointsPerTransferData = parseInt(currentPointsData) / (111 - parseInt(transfersLeftData));
+    //let captainData = eachManager.gsx$captain.$t;
+    //let viceCaptainData = eachManager.gsx$vicecaptain.$t;
+    let captainData = eachManager.gsx$captainpts.$t;
+    let viceCaptainData = eachManager.gsx$vicecaptainpts.$t;
+    let pointsPerTransferData = parseInt(currentPointsData) / (110 - parseInt(transfersLeftData));
     let estimatedFinalPointsData = parseInt(currentPointsData) + parseFloat(pointsPerTransferData) * parseInt(transfersLeftData);
     let groupNameData = eachManager.gsx$group.$t;
     let groupScoreData = eachManager.gsx$groupscore.$t;
