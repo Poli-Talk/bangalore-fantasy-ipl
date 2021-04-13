@@ -80,7 +80,7 @@ for (const playerInfo of json_obj.feed.entry) {
             break;
         case "DC": addData(playerInfo, 'dc');
             break;
-        case "KXIP": addData(playerInfo, 'kxip');
+        case "PBKS": addData(playerInfo, 'kxip');
             break;
         case "KKR": addData(playerInfo, 'kkr');
             break;
