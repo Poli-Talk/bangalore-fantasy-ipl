@@ -115,3 +115,8 @@ button {
     width: 103px;
     text-align: center;
 }
+
+.boosting-today{
+    color: black;
+    background-color: yellow;
+}

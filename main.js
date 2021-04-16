@@ -75,7 +75,18 @@ for (const eachRow of fullTable) {
     const eachData = eachRow.getElementsByTagName('td');
     let overallPositionIndex = 7;
     let transfersLeftIndex = 9;
+    let boostedToday = 12;
     let loopCounter = 0;
+    let managerBoosted = false;
+
+    for (const dataElement of eachData) {
+        loopCounter++;
+        if (loopCounter == boostedToday && parseInt(dataElement.innerHTML) != "0") {
+            managerBoosted = true;
+        }
+    }
+
+    loopCounter = 0;
     for (const dataElement of eachData) {
         loopCounter++;
 
@@ -93,6 +104,11 @@ for (const eachRow of fullTable) {
         }
         else if (loopCounter == overallPositionIndex && parseInt(dataElement.innerHTML) > 5) {
             eachRow.classList.add('not-top-5');
+        }
+        if (managerBoosted) {
+            // console.log(dataElement);
+            eachRow.classList.add('boosting-today');
+            dataElement.classList.add('boosting-today');
         }
     }
 

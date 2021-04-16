@@ -1,6 +1,7 @@
 var captain = "//div[contains(@class,'df-cap ')]//div[@class='df-pitch__plyr-name']//span";
 var viceCaptain = "//div[contains(@class,'df-vcap ')]//div[@class='df-pitch__plyr-name']//span";
 var manager = "//div[@class='df-overlay__title']";
+var transfersRemaining = "//div[@class='df-transfer__head df-transfer__head--rowCol']//span[3]";
 var closeBox = document.getElementsByClassName('dfi-close');
 var first = document.getElementsByClassName('df-plyrSel__thumb');
 var overall = document.getElementsByClassName('swiper-slide swiper-slide-next');
@@ -9,19 +10,19 @@ var over = "//li[@class='swiper-slide swiper-slide-next']";
 var reachedMatchDayOne = false;
 var own = 0;
 var fullArray = "";
-var gamesPassed = 28;
+var gamesPassed = 4;
 var timeout = 1000;
 
-var managerTransfersLeft = [["PoliTalk", "53"], ["Avadakadavra", "69"],
-["SaanviSumeha", "60"], ["SuperStars Hyderabad", "66"], ["venkatvasili64", "70"],
-["Chilukuri11", "63"], ["Deccan Missiles", "62"], ["VIKRAMs DREAM 11", "83"],
-["IndiaRockzzzz", "55"], ["Vultures 2020", "72"], ["ANANDYE WARRIORS", "69"],
-["Rockers 1209", "57"], ["Pratheek2007", "50"], ["LITHINK KINGSMEN", "75"], ["MSGatti Army", "54"],
-["HardHitterz", "67"], ["Phoenix0795", "76"], ["NEWINDI WANDERERS", "71"], ["CHAKRIV REBELS", "59"],
-["CPRPanthers", "57"], ["PRANEET BANDITS", "71"], ["LAXMAN10204CD", "52"], ["KINGS SHADOWS", "55"],
-["SchumiTheChamp", "60"], ["VaraSmashers", "41"], ["SatyaG Chargers", "45"],
-["SR Cricketers", "70"], ["JAGGUIX", "80"], ["GabbarSinghKeFauz", "45"], ["Avengers II", "54"],
-["CHENKAR SULTANS", "51"], ["SAACHINNN", "15"], ["GAJJALA PANTHERS 4224", "0"], ["PHV8496", "0"]];
+var managerTransfersLeft = [[ "PoliTalk", "10" ], [ "Pratheek2007", "13" ],
+[ "venkatvasili64", "10" ], [ "KINGS SHADOWS", "8" ], [ "KiwiDiv", "9" ], [ "RAMES3024TU", "11" ],
+[ "ChaituX1", "7" ], [ "NAYANATHARA BATCH", "11" ], [ "GabbarSinghKeFauz", "8" ],
+[ "Deccan Missiles", "10" ], [ "SR Cricketers", "9" ], [ "Rockers 1209", "16" ], [ "PRANE1868RS", "14" ],
+[ "tattoo inside brain", "14" ], [ "Avengers II", "11" ], [ "Dhoniku whistle podu", "9" ],
+[ "MSGatti Army", "10" ], [ "Paapampati XI", "6" ], [ "RISING   PHOENIX", "6" ], [ "CHAKRIV REBELS", "6" ],
+[ "vinnu3969", "14" ], [ "san lannisters", "13" ], [ "SaanviSumeha", "6" ], [ "suddu3333333333", "9" ],
+[ "Vultures 2020", "9" ], [ "100RABHS ELEVEN", "6" ], [ "DVNRK2KL", "13" ], [ "IndiaRockzzzz", "5" ],
+[ "CPRPanthers", "8" ], [ "SuperStars Hyderabad", "6" ], [ "LITHIN76UV", "11" ], [ "Avadakadavra", "8" ],
+[ "League of Dark Knights", "13" ], [ "SchumiTheChamp", "3" ]];
 
 
 
@@ -40,6 +41,9 @@ async function doWork() {
         await sleep(timeout);
         let managerName = document.evaluate(manager, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
         let mName = managerName.singleNodeValue.textContent;
+
+        let remainingTransfers = document.evaluate(transfersRemaining, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+        let rTransfers = remainingTransfers.singleNodeValue.textContent;
 
         // let lastTransfers = document.evaluate(lastTransfersXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
         // let lastTransfersCount = lastTransfers.singleNodeValue.textContent;
@@ -65,7 +69,8 @@ async function doWork() {
 
 
         await sleep(timeout);
-        fullArray = fullArray + "{\"" + mName + "\",\"" + totalTransfersMade + "\" },";
+        //fullArray = fullArray + "{\"" + mName + "\",\"" + totalTransfersMade + "\" },";
+        fullArray = fullArray + "{\"" + mName + "\",\"" + rTransfers + "\" },";
         console.log(fullArray);
     }
 }
@@ -79,4 +84,3 @@ async function scrollTillEnd() {
         lone.scrollIntoView();
     }
 }
-
