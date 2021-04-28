@@ -6,7 +6,7 @@ const spreadsheetURL = prefix + sheetId + suffix;
 const tableHeads = document.querySelectorAll("th");
 
 var json_obj = JSON.parse(getData(spreadsheetURL));
-//console.log(spreadsheetURL);
+console.log(spreadsheetURL);
 
 function getData(url) {
     var HttpReq = new XMLHttpRequest(); // a new request
@@ -32,6 +32,7 @@ for (const eachManager of json_obj.feed.entry) {
     let estimatedFinalPointsData = parseInt(currentPointsData) + parseFloat(pointsPerTransferData) * parseInt(transfersLeftData);
     let groupNameData = eachManager.gsx$group.$t;
     let groupScoreData = eachManager.gsx$groupscore.$t;
+    let playerUpScoreAndPlayer = eachManager.gsx$from1up.$t;
 
     let gridTable = document.querySelector('table');
     let row = gridTable.insertRow();
@@ -58,7 +59,8 @@ for (const eachManager of json_obj.feed.entry) {
         scoredToday.innerHTML = scoredTodayData;
         overallPostion.innerHTML = overallPostionData;
         currentPoints.innerHTML = currentPointsData;
-        pointsForPolePosition.innerHTML = pointsForPolePositionData;
+        //pointsForPolePosition.innerHTML = pointsForPolePositionData;
+        pointsForPolePosition.innerHTML = playerUpScoreAndPlayer;
         transfersLeft.innerHTML = transfersLeftData;
         captain.innerHTML = captainData;
         groupScore.innerHTML = groupScoreData;
