@@ -36,6 +36,14 @@ async function doWork() {
         let cName = captainName.singleNodeValue.textContent;
         let vcName = viceCaptainName.singleNodeValue.textContent;
         let mName = managerName.singleNodeValue.textContent;
+
+
+
+        if (mName === "RISING     PHOENIX") {
+            mName = "RISING PHOENIX";
+        }
+
+
         //console.log(cName);
         //console.log(vcName);
         // console.log(mName);
@@ -45,7 +53,7 @@ async function doWork() {
 
         if (boosterCounter > 1) {
             let boosterType = document.evaluate(boosterImgReferenceText, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-            let bType = boosterType.singleNodeValue.getAttribute('src').replace("/season/static-assets/build/images/booster-icons/", "").replace(".svg", "");
+            let bType = boosterType.singleNodeValue.getAttribute('src').replace("/icc-season/static-assets/build/images/booster-icons/", "").replace(".svg", "");
             //console.log(bType);
             if (bType == 'arrow_white-border') {
                 understandableBoosterName = 'UT'

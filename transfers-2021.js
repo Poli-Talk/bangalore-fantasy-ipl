@@ -41,6 +41,12 @@ async function doWork() {
         await sleep(timeout);
         let managerName = document.evaluate(manager, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
         let mName = managerName.singleNodeValue.textContent;
+
+        if (mName === "RISING     PHOENIX") {
+            mName = "RISING PHOENIX";
+        }
+
+
         let rTransfers = 0;
         if (own != 1) {
             let overClick = document.evaluate(over, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
